@@ -1,20 +1,28 @@
-import { Route, HashRouter as Router } from 'react-router-dom';
-import MovieList from '../MovieList/MovieList';
-import './App.css';
+import { Route, HashRouter as Router } from "react-router-dom";
+import MovieList from "../MovieList/MovieList";
+import MovieDetails from "../MovieDetails/MovieDetails"; // Import the MovieDetails component
+import { ChakraProvider } from "@chakra-ui/react";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
-      <Router>        
+      <h1>Ty's Movie List</h1>
+      <Router>
         <Route path="/" exact>
           <MovieList />
         </Route>
-        
+
         {/* Details page */}
+        <Route path="/details/:id">
+          <MovieDetails />
+        </Route>
 
         {/* Add Movie page */}
-        
+        {/* <Route path="/add-movie">
+          <AddMovie />
+        </Route> */}
+
       </Router>
     </div>
   );

@@ -1,16 +1,45 @@
-// Details Page
-// Fetching Movie Details:
+import React, { useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-// Use React-Redux Saga to make a GET request for the specific movie's details by its ID.
-// The Saga should handle the API call to fetch movie details, including genres.
-// Display Movie Details:
+const MovieDetails = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory(); // For navigation
+  const movie = useSelector((state) => state.movieDetails);
+  const isLoading = useSelector((state) => state.isLoading);
 
-// Ensure the details page displays the movie's title, description, genres, and poster.
-// Assign data-testid="movieDetails" to the main container of this page.
-// Back to Movie List Button:
+  useEffect(() => {
+    dispatch({ type: "FETCH_MOVIE_DETAILS", payload: id });
+  }, [dispatch, id]);
 
-// Implement a button that navigates back to the Home/List Page.
-// Assign data-testid="toList" to this button.
-// Hint for Implementation:
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-// Utilize req.params and :id in your server-side route to fetch details of a specific movie.
+  // Navigate back to the movie list
+  const navigateBack = () => {
+    history.push("/");
+  };
+
+  return (
+    <div data-testid="movieDetails">
+      <h2>{movie.title}</h2>
+      <img src={movie.poster} alt={movie.title} />
+      <p>{movie.description}</p>
+      {/* Display genres if available */}
+      {movie.genres &&
+        movie.genres.map((genre, index) => (
+          <span key={index}>
+            {genre}
+            {index < movie.genres.length - 1 ? ", " : ""}
+          </span>
+        ))}
+      <button onClick={navigateBack} data-testid="toList">
+        Back to List
+      </button>
+    </div>
+  );
+};
+
+export default MovieDetails;

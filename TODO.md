@@ -1,3 +1,17 @@
+### Using Sagas in Components
+ Dispatch Actions: You need to ensure that the appropriate actions are dispatched from your React components to trigger the sagas.
+ Select Data: Use useSelector in your components to access the Redux state.
+ Handle Loading and Errors: Implement loading and error handling in your components based on the saga's execution.
+Testing
+
+ Test Sagas: Write tests to ensure your sagas handle asynchronous tasks correctly.
+ Test Components: Ensure your components are correctly interacting with the Redux store and sagas.
+Debugging and Optimization
+
+ Use Redux DevTools: Ensure you are utilizing Redux DevTools for debugging.
+ Optimize Performance: Look out for any performance issues and optimize as necessary.
+
+
 # Weekend Movies Saga
 
 ## Adding a "Details View" to a Movie App
@@ -33,9 +47,9 @@ This 👆 is a **many-to-many relationship**! Junction table time! 😎
 
 We've given you the database, complete with a `movies_genres` junction table. -->
 
-### Movie Poster Images
+<!-- ### Movie Poster Images
 <!-- TODO images are created and saved under user/ i just need to modify the table and import -->
-We've added some movie posters to the `public/images` folder, and the database is set up to use them. If you want to use your own posters, you'll need to add the files there and modify the `database.sql` file.
+<!-- We've added some movie posters to the `public/images` folder, and the database is set up to use them. If you want to use your own posters, you'll need to add the files there and modify the `database.sql` file. --> -->
 
 ## Feature List
 
@@ -57,10 +71,9 @@ It is also worth noting that some of the pre-existing code will only be necessar
 
 - [ ] Each of the movie items' posters (`<img>` elements) on this page must have a `data-testid="toDetails"` attribute.
 
-
 ### Details Page
 
-- [ ] This view should show all details **including ALL the genres** for the selected movie, as well as the title, description, and poster image. Use Sagas and Redux to handle these requests and data. 
+- [ ] This view should show all details **including ALL the genres** for the selected movie, as well as the title, description, and poster image. Use Sagas and Redux to handle these requests and data.
 
 - [ ] The details page must have a `data-testid="movieDetails"` attribute.
 
