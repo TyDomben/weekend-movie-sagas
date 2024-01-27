@@ -5,6 +5,8 @@
 For this weekend challenge you'll be expanding on a movie management application! We're already able to see the movies that exist in our database.
 
 We'll need to be able to see a detailed view for each individual movie, including all genres associated with that movie. This is a very common pattern, to go from a list to showing more information about a single item.
+<!-- ! URL to this weeks notes -->
+ <!--! https://github.com/PrimeAcademy/peridot-syllabus/tree/develop/lecture-notes/week-12-sql-advanced-redux-sagas  -->
 
 <!---- ## Database Setup
 
@@ -30,7 +32,7 @@ We'll need to be able to see a detailed view for each individual movie, includin
 This 👆 is a **many-to-many relationship**! Junction table time! 😎
 
 We've given you the database, complete with a `movies_genres` junction table. -->
- 
+
 ### Movie Poster Images
 <!-- TODO images are created and saved under user/ i just need to modify the table and import -->
 We've added some movie posters to the `public/images` folder, and the database is set up to use them. If you want to use your own posters, you'll need to add the files there and modify the `database.sql` file.
@@ -47,7 +49,7 @@ It is also worth noting that some of the pre-existing code will only be necessar
 
 ### Home/List Page
 
-- [x] This view displays all of the movies in the movie database. 
+- [x] This view displays all of the movies in the movie database.
 
 - [ ] When a movie poster (`<img>` element) is clicked, a user should be brought to the details page.
 
