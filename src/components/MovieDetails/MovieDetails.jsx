@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import combinedActions from "../../redux/actions/actions";
+
+// MovieDetails component
 
 const MovieDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory(); // For navigation
-  const movie = useSelector((state) => state.movieDetails);
-  const isLoading = useSelector((state) => state.isLoading);
+  const movieDetailsState = useSelector((state) => state.movieDetails);
+  const movie = movieDetailsState.data;
+  const isLoading = movieDetailsState.isLoading;
 
   console.log("Movie ID from URL:", id);
 
   useEffect(() => {
-    // Dispatch the action to fetch movie details
-    dispatch({ type: "FETCH_MOVIE_DETAILS", payload: id });
+    dispatch(combinedActions.fetchMovieDetails(id));
   }, [dispatch, id]);
 
   // Navigate back to the movie list

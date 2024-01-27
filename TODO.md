@@ -1,17 +1,3 @@
-### Using Sagas in Components
- Dispatch Actions: You need to ensure that the appropriate actions are dispatched from your React components to trigger the sagas.
- Select Data: Use useSelector in your components to access the Redux state.
- Handle Loading and Errors: Implement loading and error handling in your components based on the saga's execution.
-Testing
-
- Test Sagas: Write tests to ensure your sagas handle asynchronous tasks correctly.
- Test Components: Ensure your components are correctly interacting with the Redux store and sagas.
-Debugging and Optimization
-
- Use Redux DevTools: Ensure you are utilizing Redux DevTools for debugging.
- Optimize Performance: Look out for any performance issues and optimize as necessary.
-
-
 # Weekend Movies Saga
 
 ## Adding a "Details View" to a Movie App
