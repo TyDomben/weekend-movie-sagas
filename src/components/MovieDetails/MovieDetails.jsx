@@ -14,6 +14,8 @@ const MovieDetails = () => {
 
   console.log("Movie ID from URL:", id);
 
+  const history = useHistory();
+
   useEffect(() => {
     dispatch(combinedActions.fetchMovieDetails(id));
   }, [dispatch, id]);

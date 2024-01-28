@@ -3,13 +3,11 @@
 // Import the root reducer from the reducers/index.js file.
 // Import the root saga from the sagas/index.js file.
 // Set up the Redux store and saga middleware.
-import rootReducer from './reducer/reducers'; // From the reducer subdirectory
-import rootSaga from './sagas/sagas'; // From the sagas subdirectory
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
-import { takeEvery, put } from "redux-saga/effects";
-import axios from "axios";
+import rootReducer from './reducer/reducers'; // From the reducer subdirectory
+import rootSaga from './sagas/sagas'; // From the sagas subdirectory
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

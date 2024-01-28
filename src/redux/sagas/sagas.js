@@ -35,9 +35,26 @@ function* fetchMovieDetails(action) {
   }
 }
 
+function* addMovieSaga(action) {
+  try {
+    const newMovie = action.payload;
+    yield call(axios.post, "/api/movies", newMovie);
+    // After adding, fetch the updated movies list
+    const moviesResponse = yield call(axios.get, "/api/movies");
+    yield put({ type: SET_MOVIES, payload: moviesResponse.data });
+  } catch (error) {
+    console.error("Error adding movie:", error);
+  }
+}
+
+function* watchAddMovie() {
+  yield takeEvery(ADD_MOVIE, addMovieSaga);
+}
+
 export default function* rootSaga() {
   yield all([
     takeEvery(combinedActions.FETCH_MOVIES, fetchAllMovies),
     takeEvery(combinedActions.FETCH_MOVIE_DETAILS, fetchMovieDetails),
+    takeEvery(combinedActions.ADD_MOVIE, watchAddMovie),
   ]);
 }
