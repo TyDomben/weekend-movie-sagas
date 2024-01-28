@@ -1,16 +1,16 @@
 import { Route, HashRouter as Router } from "react-router-dom";
 import MovieList from "../MovieList/MovieList";
-import MovieDetails from "../MovieDetails/MovieDetails"; // Import the MovieDetails component
+import MovieDetails from "../MovieDetails/MovieDetails";
 import AddMovie from "../AddMovie/AddMovie";
-import { ChakraProvider } from "@chakra-ui/react";
-// import "./App.css";
-// import { Route } from "react-router-dom";
+import { Heading } from "@chakra-ui/react";
 
 
 function App() {
   return (
     <div className="App">
-      <h1>Ty's Movie List</h1>
+      <Heading as="h1" size="2xl" color="teal.500" textAlign="center" m={5}>
+        Ty's Movie List Application
+      </Heading>{" "}
       <Router>
         <Route path="/" exact>
           <MovieList />

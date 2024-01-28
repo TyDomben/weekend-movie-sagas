@@ -2,58 +2,61 @@ import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import combinedActions from "../../redux/actions/actions";
-
-// MovieDetails component
+import { Box, Image, Text, Button, Heading } from "@chakra-ui/react";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const movieDetailsState = useSelector((state) => state.movieDetails);
   const movie = movieDetailsState.data;
   const isLoading = movieDetailsState.isLoading;
-
-  console.log("Movie ID from URL:", id);
-
-  const history = useHistory();
 
   useEffect(() => {
     dispatch(combinedActions.fetchMovieDetails(id));
   }, [dispatch, id]);
 
-  // Navigate back to the movie list
+useHistory();
   const navigateBack = () => {
     history.push("/");
   };
 
   if (isLoading || !movie) {
-    // Show loading only if we are loading or if the movie is null - to prevent a white
-    return <div>Loading...</div>;
+    return <Box>Loading...</Box>;
   }
 
-  // Now we are sure that `movie` is defined and we can access its properties
   return (
-    <>
-      <h1>Ty's Movie Details</h1>
-
-      <div data-testid="movieDetails">
-        <h2>{movie.title}</h2>
-        <h3>Movie ID: {id}</h3>
-
-        <img src={movie.poster} alt={movie.title} />
-        <p>{movie.description}</p>
-        {/* Display genres if available */}
-        {movie.genres &&
-          movie.genres.map((genre, index) => (
-            <span key={index}>
-              {genre}
-              {index < movie.genres.length - 1 ? ", " : ""}
-            </span>
-          ))}
-        <button onClick={navigateBack} data-testid="toList">
+    <Box p={6}>
+      <Heading as="h1" size="xl">
+        Ty's Movie Details
+      </Heading>
+      <Box mt={4} p={4} boxShadow="md" rounded="md">
+        <Heading as="h2" size="lg">
+          {movie.title}
+        </Heading>
+        <Text color="gray.600">Movie ID: {id}</Text>
+        <Image
+          src={movie.poster}
+          alt={movie.title}
+          boxSize="300px"
+          objectFit="cover"
+          my={4}
+        />
+        <Text fontSize="md">{movie.description}</Text>
+        <Box mt={4}>
+          {movie.genres &&
+            movie.genres.map((genre, index) => (
+              <Text as="span" key={index} mr={2}>
+                {genre}
+                {index < movie.genres.length - 1 ? ", " : ""}
+              </Text>
+            ))}
+        </Box>
+        <Button mt={4} colorScheme="blue" onClick={navigateBack}>
           Back to List
-        </button>
-      </div>
-    </>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

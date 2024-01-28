@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import "./MovieList.css";
+import { Box, Grid, Image, Text, Button, GridItem } from "@chakra-ui/react";
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -13,37 +13,63 @@ function MovieList() {
   }, [dispatch]);
 
   const handleMovieClick = (movieId) => {
-    // Navigate to the details page
-
-    // for now we just want to navigate to the details page
-    // when the user clicks on a movie poster
-
-    // Dispatch action to fetch movie details
-    // !dispatch({ type: "FETCH_DETAILS", payload: movieId });
-
-    // Navigate to the details page
     history.push(`/details/${movieId}`);
   };
 
+  const navigateToAddMovie = () => {
+    history.push("/add-movie");
+  };
+
   return (
-    <main>
-      <h1>Ty's Movie List</h1>
-      <section className="movies">
+    <Box p={4}>
+      <Text fontSize="2xl" color="brand.500" mb={4}>
+        Ty's Movie List
+      </Text>
+      <Button colorScheme="brand" mb={4} onClick={navigateToAddMovie}>
+        Add Movie
+      </Button>
+      <Grid
+        templateColumns={{
+          sm: "repeat(2, 1fr)", 
+          // sm: 'repeat(2, 1fr)': On small screens (sm), the grid will have 2 columns. Each column takes up an equal fraction (1fr) of the available space.
+          md: "repeat(3, 1fr)",
+          //
+          lg: "repeat(4, 1fr)",
+          //
+        }}
+        gap={6}
+      >
         {movies.map((movie) => (
-          <div data-testid="movieItem" key={movie.id}>
-            <h3>{movie.title}</h3>
-            <img
-              className="movie-poster"
+          <GridItem
+            key={movie.id}
+            boxShadow="md"
+            p="6"
+            rounded="md"
+            bg="white"
+            onClick={() => handleMovieClick(movie.id)}
+            _hover={{ bg: "gray.100", cursor: "pointer" }}
+            tabIndex={0} // TODO add description on hover
+          >
+            <Image
               src={movie.poster}
               alt={movie.title}
-              width="150"
-              height="150"
-              onClick={() => handleMovieClick(movie.id)}
+              boxSize="200px"
+              objectFit="cover"
+              loading="lazy" // lazy loading images
             />
-          </div>
+            <Text
+              mt={2}
+              fontSize="xl"
+              fontWeight="semibold"
+              lineHeight="short"
+              textAlign="left"
+            >
+              {movie.title}
+            </Text>
+          </GridItem>
         ))}
-      </section>
-    </main>
+      </Grid>
+    </Box>
   );
 }
 

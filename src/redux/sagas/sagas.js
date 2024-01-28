@@ -8,7 +8,6 @@
 
 import { all, takeEvery, put, call } from "redux-saga/effects";
 import axios from "axios";
-//combined actions from ../actions/actions.js
 import combinedActions from "../actions/actions";
 
 function* fetchAllMovies() {
@@ -41,20 +40,24 @@ function* addMovieSaga(action) {
     yield call(axios.post, "/api/movies", newMovie);
     // After adding, fetch the updated movies list
     const moviesResponse = yield call(axios.get, "/api/movies");
-    yield put({ type: SET_MOVIES, payload: moviesResponse.data });
+    yield put({
+      type: combinedActions.SET_MOVIES,
+      payload: moviesResponse.data,
+    });
   } catch (error) {
     console.error("Error adding movie:", error);
   }
 }
 
 function* watchAddMovie() {
-  yield takeEvery(ADD_MOVIE, addMovieSaga);
+  yield takeEvery(combinedActions.ADD_MOVIE, addMovieSaga);
 }
 
 export default function* rootSaga() {
   yield all([
     takeEvery(combinedActions.FETCH_MOVIES, fetchAllMovies),
     takeEvery(combinedActions.FETCH_MOVIE_DETAILS, fetchMovieDetails),
-    takeEvery(combinedActions.ADD_MOVIE, watchAddMovie),
+    watchAddMovie(),
+    // Other watcher sagas if needed
   ]);
 }
