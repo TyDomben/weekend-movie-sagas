@@ -1,3 +1,5 @@
+![toystoryALT](https://github.com/TyDomben/weekend-movie-sagas/assets/127000572/741a93c3-2733-42fc-99e5-b56f3e9f6314)
+
 # Weekend Movies Saga
 
 ## Introduction
@@ -45,19 +47,3 @@ In keeping with the spirit of movie magic, I've added a personal twist to the cl
 
 1. **Add Movie Page:** Interface for adding new movies.
 2. **Refresh-able Details Page:** Utilize `useParams` for persistent state on page refresh.
-3. **Edit Page:** Functionality to edit movie details.
-
-## Additional Features (Optional)
-
-- Current values in edit fields.
-- Separation of sagas and reducers.
-- Genre management for movies.
-- Search functionality for movies.
-
-## Contributing
-
-Contributions are welcome. Please adhere to the project's coding standards and submit pull requests for proposed changes.
-
-## License
-
-[Specify License]

@@ -81,6 +81,16 @@ const customTheme = extendTheme({
     lg: "1024px",
     xl: "1280px",
   },
+  styles: {
+    global: {
+      // Apply styles to the `body` element
+      body: {
+        bg: "green.900", // Example: Set the background color
+        color: "gray.800", // Set the default text color
+        // You can add more styles here as needed
+      },
+    },
+  },
 });
 
 export default customTheme;

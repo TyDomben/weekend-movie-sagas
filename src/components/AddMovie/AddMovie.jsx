@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 const AddMovie = () => {
+  // State to store form inputs for the new movie
   const [newMovie, setNewMovie] = useState({
     title: "",
     poster: "",
@@ -22,23 +23,24 @@ const AddMovie = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
-
+  // Function to navigate back to the movie list
   useHistory();
   const navigateBack = () => {
     history.push("/");
   };
+  // Updates state
   const handleInputChange = (event) => {
     setNewMovie({ ...newMovie, [event.target.name]: event.target.value });
   };
-
+  // Handles form submission.
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(combinedActions.addMovie(newMovie));
+    dispatch(combinedActions.addMovie(newMovie)); // Dispatch action to add movie to store
     setNewMovie({ title: "", poster: "", description: "" }); // Reset form
   };
-
+  // Render the form with Chakra UI components
   return (
-    <Box p={6}>
+    <Box boxShadow="md" rounded="md" bg="white" p={6}>
       <Heading as="h2" size="xl">
         Add a New Movie
       </Heading>
@@ -52,6 +54,7 @@ const AddMovie = () => {
             placeholder="Title"
           />
         </FormControl>
+
         <FormControl id="poster" isRequired mt={4}>
           <FormLabel>Poster URL</FormLabel>
           <Input
@@ -61,6 +64,7 @@ const AddMovie = () => {
             placeholder="Poster URL"
           />
         </FormControl>
+
         <FormControl id="description" isRequired mt={4}>
           <FormLabel>Description</FormLabel>
           <Textarea
@@ -70,9 +74,11 @@ const AddMovie = () => {
             placeholder="Description"
           />
         </FormControl>
+
         <Button type="submit" colorScheme="brand" mt={4}>
           Add Movie
         </Button>
+
         <Box p={6}>
           <Button mt={4} colorScheme="brand" onClick={navigateBack}>
             Back to List

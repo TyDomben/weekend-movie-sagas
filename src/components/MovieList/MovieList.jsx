@@ -15,9 +15,6 @@ function MovieList() {
   const handleMovieClick = (movieId) => {
     history.push(`/details/${movieId}`);
   };
-  const handleMovieHover = (movieId) => {
-    history.push(`/details/${movieId}`);
-  };
 
   const navigateToAddMovie = () => {
     history.push("/add-movie");
@@ -25,7 +22,7 @@ function MovieList() {
 
   return (
     <Box p={4}>
-      <Text fontSize="2xl" color="brand.500" mb={4}>
+      <Text fontSize="4xl" color="brand.500" mb={4}>
         Ty's Movie List
       </Text>
       <Button colorScheme="brand" mb={4} onClick={navigateToAddMovie}>
@@ -33,7 +30,7 @@ function MovieList() {
       </Button>
       <Grid
         templateColumns={{
-          sm: "repeat(2, 1fr)", 
+          sm: "repeat(2, 1fr)",
           // sm: 'repeat(2, 1fr)': On small screens (sm), the grid will have 2 columns. Each column takes up an equal fraction (1fr) of the available space.
           md: "repeat(3, 1fr)",
           //
