@@ -22,7 +22,11 @@ const MovieDetails = () => {
   };
 
   if (isLoading || !movie) {
-    return <Box>Loading...</Box>;
+    return <Box p={4} bg="white" rounded="sm" m={4}> 
+      <Heading as="h1" size="xl">
+      Loading...
+      </Heading>
+      consider restarting the application</Box>;
   }
 
   return (
