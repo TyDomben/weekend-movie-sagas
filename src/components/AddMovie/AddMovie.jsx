@@ -70,11 +70,11 @@ const AddMovie = () => {
             placeholder="Description"
           />
         </FormControl>
-        <Button type="submit" colorScheme="blue" mt={4}>
+        <Button type="submit" colorScheme="brand" mt={4}>
           Add Movie
         </Button>
         <Box p={6}>
-          <Button mt={4} colorScheme="blue" onClick={navigateBack}>
+          <Button mt={4} colorScheme="brand" onClick={navigateBack}>
             Back to List
           </Button>
         </Box>

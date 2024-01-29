@@ -34,7 +34,7 @@ useHistory();
         <Heading as="h2" size="lg">
           {movie.title}
         </Heading>
-        <Text color="gray.600">Movie ID: {id}</Text>
+        <Text color="brand.600">Movie ID: {id}</Text>
         <Image
           src={movie.poster}
           alt={movie.title}
@@ -52,7 +52,7 @@ useHistory();
               </Text>
             ))}
         </Box>
-        <Button mt={4} colorScheme="blue" onClick={navigateBack}>
+        <Button mt={4} colorScheme="brand" onClick={navigateBack}>
           Back to List
         </Button>
       </Box>

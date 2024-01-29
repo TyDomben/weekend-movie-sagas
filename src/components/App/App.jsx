@@ -4,13 +4,12 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import AddMovie from "../AddMovie/AddMovie";
 import { Heading } from "@chakra-ui/react";
 
-
 function App() {
   return (
     <div className="App">
-      <Heading as="h1" size="2xl" color="teal.500" textAlign="center" m={5}>
+      <Heading as="h1" size="2xl" color="brand.500" textAlign="center" m={5}>
         Ty's Movie List Application
-      </Heading>{" "}
+      </Heading>
       <Router>
         <Route path="/" exact>
           <MovieList />

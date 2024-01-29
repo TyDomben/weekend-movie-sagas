@@ -15,6 +15,9 @@ function MovieList() {
   const handleMovieClick = (movieId) => {
     history.push(`/details/${movieId}`);
   };
+  const handleMovieHover = (movieId) => {
+    history.push(`/details/${movieId}`);
+  };
 
   const navigateToAddMovie = () => {
     history.push("/add-movie");
@@ -48,14 +51,14 @@ function MovieList() {
             bg="white"
             onClick={() => handleMovieClick(movie.id)}
             _hover={{ bg: "gray.100", cursor: "pointer" }}
-            tabIndex={0} // TODO add description on hover
+            tabIndex={0} // TODO add description on hover?
           >
             <Image
               src={movie.poster}
               alt={movie.title}
               boxSize="200px"
               objectFit="cover"
-              loading="lazy" // lazy loading images
+              rounded="md"
             />
             <Text
               mt={2}
