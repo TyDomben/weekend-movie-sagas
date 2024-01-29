@@ -4,6 +4,10 @@
 
 Weekend Movies Saga is a dynamic movie management application that leverages Redux-Saga for efficient state management and Chakra UI for an accessible, user-friendly interface. This project not only showcases the ability to view a list of movies and their details but also emphasizes inclusive design and advanced state management techniques.
 
+## Personalized Movie Posters
+
+In keeping with the spirit of movie magic, I've added a personal twist to the classic movie posters in our database. Each poster features an "approximate" superimposition of my face, blending a bit of fun with the functionality of the app. It's a nod to the creative process and a reminder that behind every line of code, there's a human touch.
+
 ## Key Features
 
 - **Redux-Saga Integration:** Utilized for handling asynchronous actions and side effects in Redux, providing a more organized and maintainable approach to managing complex application states.
