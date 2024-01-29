@@ -1,3 +1,5 @@
+![toystoryALT](https://github.com/TyDomben/weekend-movie-sagas/assets/127000572/741a93c3-2733-42fc-99e5-b56f3e9f6314)
+
 # Weekend Movies Saga
 
 ## Introduction
