@@ -60,6 +60,7 @@ const customTheme = extendTheme({
           color: "white",
           _hover: {
             bg: props.colorMode === "dark" ? "brand.700" : "brand.600",
+            // TODO this logic could probably be applied to display details on hover
           },
         }),
       },
@@ -81,16 +82,23 @@ const customTheme = extendTheme({
     lg: "1024px",
     xl: "1280px",
   },
+
   styles: {
     global: {
       // Apply styles to the `body` element
       body: {
-        bg: "green.900", // Example: Set the background color
+        bgImage: `url('/images/mustacheBackground1.png')`, 
+        bgPosition: "left",
+        bgRepeat: "repeat",
+        bgSize: "100%",
+        objectfit: "contain",
+        bgAttachment: "fixed", 
         color: "gray.800", // Set the default text color
         // You can add more styles here as needed
       },
     },
   },
+  
 });
 
 export default customTheme;

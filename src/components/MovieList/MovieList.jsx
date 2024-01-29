@@ -21,10 +21,13 @@ function MovieList() {
   };
 
   return (
-    <Box p={4}>
-      <Text fontSize="4xl" color="brand.500" mb={4}>
-        Ty's Movie List
-      </Text>
+    <Box p={4} boxShadow="lg" rounded="lg" m={4}>
+    <Box p={4} bg="white" rounded="sm" m={4}>
+      <Text fontSize="4xl" color="brand.500" mb={4} boxShadow="md">
+          Ty's Movie List
+        </Text>
+      </Box>
+
       <Button colorScheme="brand" mb={4} onClick={navigateToAddMovie}>
         Add Movie
       </Button>

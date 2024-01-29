@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
           console.log(err);
           res.sendStatus(500)
       })
-    }).catch(err => { // 👈 Catch for first query
+    }).catch(err => { // Catch for first query
       console.log(err);
       res.sendStatus(500)
     })

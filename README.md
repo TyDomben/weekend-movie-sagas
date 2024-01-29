@@ -23,8 +23,7 @@ In keeping with the spirit of movie magic, I've added a personal twist to the cl
 ## Installation and Setup
 
 1. Run `npm install` to install dependencies.
-2. Test the application with `npm run test`.
-3. Start the server (`npm run server`) and the React app (`npm run client`).
+2. Start the server (`npm run server`) and the React app (`npm run client`).
 
 ## Application Workflow
 

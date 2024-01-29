@@ -16,7 +16,7 @@ const MovieDetails = () => {
     dispatch(combinedActions.fetchMovieDetails(id));
   }, [dispatch, id]);
 
-useHistory();
+  useHistory();
   const navigateBack = () => {
     history.push("/");
   };
@@ -26,7 +26,7 @@ useHistory();
   }
 
   return (
-    <Box p={6}>
+    <Box p={4} bg="white" rounded="sm" m={4}>
       <Heading as="h1" size="xl">
         Ty's Movie Details
       </Heading>
